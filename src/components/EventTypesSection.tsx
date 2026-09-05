@@ -212,13 +212,19 @@ export const EventTypesSection: React.FC<EventTypesSectionProps> = ({ onOpenBudg
 
       {/* Modal for Event Details */}
       {selectedEvent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-[#FAF8F5] rounded-sm max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#E8DFD3] relative">
+        <div
+          className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 pt-[max(env(safe-area-inset-top),16px)] pb-[max(env(safe-area-inset-bottom),16px)] bg-black/75 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-300"
+          onClick={() => setSelectedEvent(null)}
+        >
+          <div
+            className="bg-[#FAF8F5] rounded-sm max-w-2xl w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[90vh] overflow-y-auto shadow-2xl border border-[#E8DFD3] relative my-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             
             {/* Close Button */}
             <button
               onClick={() => setSelectedEvent(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-[#1E1B19] transition-colors shadow-sm"
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 p-2.5 rounded-full bg-white/90 hover:bg-white text-[#1E1B19] transition-colors shadow-md touch-manipulation cursor-pointer"
               aria-label="Fechar"
             >
               <X className="w-5 h-5" />

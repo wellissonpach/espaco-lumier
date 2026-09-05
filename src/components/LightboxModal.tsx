@@ -36,17 +36,17 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-in fade-in duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 pt-[max(env(safe-area-inset-top),16px)] pb-[max(env(safe-area-inset-bottom),16px)] bg-black/90 backdrop-blur-md animate-in fade-in duration-300"
       onClick={onClose}
     >
       <div
-        className="relative max-w-5xl w-full bg-[#1E1B19] rounded-sm overflow-hidden border border-white/10 shadow-2xl flex flex-col md:flex-row"
+        className="relative max-w-5xl w-full bg-[#1E1B19] rounded-sm overflow-hidden border border-white/10 shadow-2xl flex flex-col md:flex-row max-h-[calc(100dvh-2.5rem)]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 hover:bg-black text-white transition-colors"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-30 p-2.5 rounded-full bg-black/70 hover:bg-black text-white transition-colors cursor-pointer touch-manipulation shadow-md"
           aria-label="Fechar visualização"
         >
           <X className="w-5 h-5" />

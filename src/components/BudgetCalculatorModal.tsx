@@ -32,6 +32,23 @@ export const BudgetCalculatorModal: React.FC<BudgetCalculatorModalProps> = ({
     }
   }, [initialEventType]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const eventOptions = [
@@ -89,14 +106,21 @@ _Enviado através do site oficial do Espaço Lumier (Vicente Pires - DF)_`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-300">
-      <div className="bg-[#FAF8F5] rounded-sm max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-[#E8DFD3] relative flex flex-col">
+    <div
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-2 sm:p-4 pt-[max(env(safe-area-inset-top),16px)] pb-[max(env(safe-area-inset-bottom),16px)] bg-black/80 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-300"
+      onClick={onClose}
+    >
+      <div
+        className="bg-[#FAF8F5] rounded-sm max-w-xl w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[90vh] overflow-y-auto shadow-2xl border border-[#E8DFD3] relative flex flex-col my-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
         
-        {/* Header */}
-        <div className="bg-[#1E1B19] text-[#FAF8F5] p-6 sm:p-7 relative border-b border-white/10">
+        {/* Header - Sticky with safe padding */}
+        <div className="sticky top-0 z-30 bg-[#1E1B19] text-[#FAF8F5] p-5 sm:p-7 border-b border-white/10 shadow-sm">
           <button
+            type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-[#D9CFC4] hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
+            className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 p-2.5 text-[#D9CFC4] hover:text-white hover:bg-white/10 active:bg-white/20 rounded-full transition-colors cursor-pointer touch-manipulation z-40"
             aria-label="Fechar modal"
           >
             <X className="w-5 h-5" />
@@ -259,7 +283,7 @@ _Enviado através do site oficial do Espaço Lumier (Vicente Pires - DF)_`;
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2.5 py-4 bg-[#25D366] text-white text-xs font-semibold uppercase tracking-[0.18em] rounded-sm hover:bg-[#20bd5a] transition-all shadow-md hover:shadow-xl"
+              className="w-full flex items-center justify-center gap-2.5 py-4 bg-[#25D366] text-white text-xs font-semibold uppercase tracking-[0.18em] rounded-sm hover:bg-[#20bd5a] transition-all shadow-md hover:shadow-xl cursor-pointer touch-manipulation"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
               <span>Receber Proposta Completa no WhatsApp</span>
@@ -267,6 +291,13 @@ _Enviado através do site oficial do Espaço Lumier (Vicente Pires - DF)_`;
             <p className="text-[10px] text-center text-[#85796E] mt-2">
               Atendimento rápido e exclusivo sem compromisso • Vicente Pires, Brasília
             </p>
+            <button
+              type="button"
+              onClick={onClose}
+              className="w-full mt-3 py-2.5 text-xs text-[#85796E] hover:text-[#1E1B19] transition-colors text-center font-medium cursor-pointer touch-manipulation"
+            >
+              Fechar e voltar ao site
+            </button>
           </div>
 
         </form>

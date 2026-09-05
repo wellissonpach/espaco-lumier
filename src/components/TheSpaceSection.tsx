@@ -374,11 +374,11 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
       {/* PHOTO CATALOG MODAL */}
       {catalogModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/92 backdrop-blur-md animate-in fade-in duration-300"
+          className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-2 sm:p-6 pt-[max(env(safe-area-inset-top),16px)] pb-[max(env(safe-area-inset-bottom),16px)] bg-black/92 backdrop-blur-md overflow-y-auto animate-in fade-in duration-300"
           onClick={() => setCatalogModal(null)}
         >
           <div
-            className="relative max-w-5xl w-full bg-[#1E1B19] rounded-sm overflow-hidden border border-[#C5A880]/30 shadow-2xl flex flex-col max-h-[95vh]"
+            className="relative max-w-5xl w-full bg-[#1E1B19] rounded-sm overflow-hidden border border-[#C5A880]/30 shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[95vh] my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
