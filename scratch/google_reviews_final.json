@@ -1,0 +1,68 @@
+[
+  {
+    "label": "Review 1",
+    "author": "jefferson roberto cesar ferreira felgueiras",
+    "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjWEEL-Mplm3zvwQ_8t_qa9gpoAunMf_o8n8pJ4U8L_TC-lDSzQt=s120-c-rp-mo-ba12-br100",
+    "rating": [
+      5
+    ],
+    "date": 1531955305635000,
+    "quote": "Super recomendável. Trabalho sério e de qualidade inigualável. A proprietária é super responsável, as instalações são ótimas, a decoração super atual, o atendimento de primeira, o acesso e localização são privilegiados, a comida é farta e deliciosa e o buffet é super variado.",
+    "url": "https://maps.app.goo.gl/ifztngM8dpNusn6e9"
+  },
+  {
+    "label": "Review 2",
+    "author": "Walison Alvim",
+    "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjW84nDvuh_H7JPFNP0_en1ckv3U-hm-DLJrvwpUC00ZWKOyDuo-=s120-c-rp-mo-ba12-br100",
+    "rating": [
+      5
+    ],
+    "date": 1759166438592971,
+    "quote": "Espaço amplo para fazer um evento dos sonhos",
+    "url": "https://maps.app.goo.gl/jCwgFWAJZDxCBzf47"
+  },
+  {
+    "label": "Review 3",
+    "author": "Maria Luzinete morais",
+    "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjVia1-o2cxGpQ-wZ7qZw93-G1SxNzf81ZpibYpdw_O5NF_YKj7m9w=s120-c-rp-mo-ba12-br100",
+    "rating": [
+      5
+    ],
+    "date": 1515455856815000,
+    "quote": "Muito lindo um espaço pra eventos perfeito",
+    "url": "https://maps.app.goo.gl/P3HvsUbWEkyb6Ag86"
+  },
+  {
+    "label": "Review 4",
+    "author": "Edna Teodoro",
+    "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjU06dUK7_kCg-Nro7oG803-_aRub17czaAFl_IC7FnIOy1BK78R=s120-c-rp-mo-ba12-br100",
+    "rating": [
+      5
+    ],
+    "date": 1574198576221777,
+    "quote": "Excelente salão para festas, localização privilegiada em Vicente Pires, muito fácil chegar.",
+    "url": "https://maps.app.goo.gl/qDE6Wo3AaG5QyHe38"
+  },
+  {
+    "label": "Review 5",
+    "author": "Vagner Martins",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocJodnd5DxA1CrP-FNXflYN9TIAeKlg7iiVAzhnce6X3ZS_N4g=s120-c-rp-mo-ba12-br100",
+    "rating": [
+      5
+    ],
+    "date": 1450667190060000,
+    "quote": "Atendimento muito bom, espaço lindo.",
+    "url": "https://maps.app.goo.gl/usN8zvLRU48uMcwJ9"
+  },
+  {
+    "label": "Review 6",
+    "author": "Sabrina de Souza",
+    "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjUkPBV8AfWigtnJQI9MdCUVfEV6PunRmrOyrr9greRwntWfoAb8DQ=s120-c-rp-mo-ba12-br100",
+    "rating": [
+      5
+    ],
+    "date": 1519205901126000,
+    "quote": "Salão de eventos com muitas possibilidades para festas. Escadaria, salão de tamanho muito bom e um belo terraço em frente. Muito bonito!",
+    "url": "https://maps.app.goo.gl/phZfCc5SXpbGJWVYA"
+  }
+]

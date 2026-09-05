@@ -1,0 +1,277 @@
+import React, { useState, useEffect } from 'react';
+import { X, Sparkles, MessageCircle, Calendar, Users, Heart, Check, Building2, Utensils, Palette } from 'lucide-react';
+import { getWhatsAppUrl } from '../data/lumierData';
+import logoImg from '../assets/logo-lumier-transparente.png';
+
+interface BudgetCalculatorModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  initialEventType?: string;
+}
+
+export const BudgetCalculatorModal: React.FC<BudgetCalculatorModalProps> = ({
+  isOpen,
+  onClose,
+  initialEventType
+}) => {
+  const [eventType, setEventType] = useState<string>('Casamento');
+  const [guests, setGuests] = useState<string>('150 a 200 convidados');
+  const [period, setPeriod] = useState<string>('2025 / 2026');
+  const [name, setName] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
+  const [selectedServices, setSelectedServices] = useState<string[]>([
+    'Espaço Nobre Climatizado',
+    'Decoração Floral Cenográfica',
+    'Buffet Completo'
+  ]);
+  const [comments, setComments] = useState<string>('');
+
+  useEffect(() => {
+    if (initialEventType) {
+      setEventType(initialEventType);
+    }
+  }, [initialEventType]);
+
+  if (!isOpen) return null;
+
+  const eventOptions = [
+    'Casamento',
+    '15 Anos',
+    'Evento Social / Aniversário',
+    'Evento Corporativo',
+    'Bodas / Outros'
+  ];
+
+  const guestOptions = [
+    'Até 100 convidados',
+    '100 a 180 convidados',
+    '180 a 240 convidados',
+    '240 a 300 convidados'
+  ];
+
+  const serviceOptions = [
+    'Espaço Nobre Climatizado',
+    'Decoração Floral Cenográfica',
+    'Buffet Completo',
+    'Open Bar & Coquetelaria',
+    'Cerimônia ao Ar Livre / Jardim',
+    'Suíte dos Noivos / Camarim'
+  ];
+
+  const toggleService = (srv: string) => {
+    if (selectedServices.includes(srv)) {
+      setSelectedServices(selectedServices.filter((s) => s !== srv));
+    } else {
+      setSelectedServices([...selectedServices, srv]);
+    }
+  };
+
+  const handleSendToWhatsApp = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const formattedMessage = `✨ *SOLICITAÇÃO DE ORÇAMENTO — ESPAÇO LUMIER* ✨
+━━━━━━━━━━━━━━━━━━━━━━
+👤 *Nome:* ${name || 'Não informado'}
+📱 *Telefone/WhatsApp:* ${phone || 'Não informado'}
+💍 *Tipo de Evento:* ${eventType}
+👥 *Número de Convidados:* ${guests}
+📅 *Previsão de Data:* ${period}
+━━━━━━━━━━━━━━━━━━━━━━
+🏛️ *Serviços de Interesse:*
+${selectedServices.map((s) => `• ${s}`).join('\n')}
+${comments ? `\n💬 *Observações:* ${comments}` : ''}
+━━━━━━━━━━━━━━━━━━━━━━
+_Enviado através do site oficial do Espaço Lumier (Vicente Pires - DF)_`;
+
+    const url = getWhatsAppUrl(formattedMessage);
+    window.open(url, '_blank', 'noopener,noreferrer');
+    onClose();
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-300">
+      <div className="bg-[#FAF8F5] rounded-sm max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-[#E8DFD3] relative flex flex-col">
+        
+        {/* Header */}
+        <div className="bg-[#1E1B19] text-[#FAF8F5] p-6 sm:p-7 relative border-b border-white/10">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 text-[#D9CFC4] hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
+            aria-label="Fechar modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <div className="flex items-center gap-3 mb-3">
+            <img
+              src={logoImg}
+              alt="Espaço Lumier"
+              className="h-10 sm:h-12 w-auto object-contain"
+            />
+            <div className="inline-flex items-center gap-1.5 text-[#C5A880] text-[10px] uppercase font-bold tracking-[0.25em]">
+              <Sparkles className="w-3 h-3" />
+              <span>Atendimento Concierge</span>
+            </div>
+          </div>
+
+          <h3 className="font-serif text-2xl sm:text-3xl font-light text-white">
+            Simulador de Orçamento & Visita
+          </h3>
+          <p className="text-xs text-[#D9CFC4] mt-1 font-light">
+            Monte os detalhes da sua celebração e receba um atendimento prioritário direto no WhatsApp.
+          </p>
+        </div>
+
+        {/* Form Body */}
+        <form onSubmit={handleSendToWhatsApp} className="p-6 sm:p-8 space-y-6 flex-1">
+          
+          {/* Step 1: Tipo de Evento */}
+          <div>
+            <label className="block text-xs uppercase font-semibold tracking-wider text-[#1E1B19] mb-2.5">
+              1. Qual celebração você está planejando?
+            </label>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {eventOptions.map((opt) => (
+                <button
+                  type="button"
+                  key={opt}
+                  onClick={() => setEventType(opt)}
+                  className={`p-2.5 text-xs rounded-sm border text-left transition-all ${
+                    eventType === opt
+                      ? 'bg-[#1E1B19] text-white border-[#1E1B19] font-medium'
+                      : 'bg-[#F5F0EB] text-[#4A433E] border-[#E8DFD3] hover:bg-[#EFE9E1]'
+                  }`}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Step 2: Convidados & Data */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs uppercase font-semibold tracking-wider text-[#1E1B19] mb-2">
+                2. Número de Convidados:
+              </label>
+              <select
+                value={guests}
+                onChange={(e) => setGuests(e.target.value)}
+                className="w-full bg-[#F5F0EB] border border-[#E8DFD3] p-2.5 rounded-sm text-xs text-[#2C2825] focus:outline-none focus:border-[#C5A880]"
+              >
+                {guestOptions.map((g) => (
+                  <option key={g} value={g}>{g}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-xs uppercase font-semibold tracking-wider text-[#1E1B19] mb-2">
+                3. Previsão de Data / Mês:
+              </label>
+              <input
+                type="text"
+                placeholder="Ex: Outubro/2025 ou Primeiro Semestre"
+                value={period}
+                onChange={(e) => setPeriod(e.target.value)}
+                className="w-full bg-[#F5F0EB] border border-[#E8DFD3] p-2.5 rounded-sm text-xs text-[#2C2825] focus:outline-none focus:border-[#C5A880]"
+              />
+            </div>
+          </div>
+
+          {/* Step 3: Serviços Desejados */}
+          <div>
+            <label className="block text-xs uppercase font-semibold tracking-wider text-[#1E1B19] mb-2">
+              4. Serviços que você gostaria de incluir:
+            </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {serviceOptions.map((srv) => {
+                const checked = selectedServices.includes(srv);
+                return (
+                  <button
+                    type="button"
+                    key={srv}
+                    onClick={() => toggleService(srv)}
+                    className={`flex items-center gap-2 p-2.5 rounded-sm border text-xs text-left transition-all ${
+                      checked
+                        ? 'bg-[#F5F0EB] border-[#C5A880] text-[#1E1B19]'
+                        : 'bg-white border-[#E8DFD3] text-[#6B6158]'
+                    }`}
+                  >
+                    <div className={`w-4 h-4 rounded-sm flex items-center justify-center border ${
+                      checked ? 'bg-[#785E34] border-[#785E34] text-white' : 'border-[#D9CFC4]'
+                    }`}>
+                      {checked && <Check className="w-3 h-3" />}
+                    </div>
+                    <span>{srv}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Step 4: Dados para Contato */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[#E8DFD3]">
+            <div>
+              <label className="block text-xs uppercase font-semibold tracking-wider text-[#1E1B19] mb-1.5">
+                Seu Nome:
+              </label>
+              <input
+                type="text"
+                required
+                placeholder="Ex: Maria Carolina"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full bg-[#F5F0EB] border border-[#E8DFD3] p-2.5 rounded-sm text-xs text-[#2C2825] focus:outline-none focus:border-[#C5A880]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs uppercase font-semibold tracking-wider text-[#1E1B19] mb-1.5">
+                Seu WhatsApp / Telefone:
+              </label>
+              <input
+                type="tel"
+                required
+                placeholder="(61) 99999-9999"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full bg-[#F5F0EB] border border-[#E8DFD3] p-2.5 rounded-sm text-xs text-[#2C2825] focus:outline-none focus:border-[#C5A880]"
+              />
+            </div>
+          </div>
+
+          {/* Extra Notes */}
+          <div>
+            <label className="block text-xs uppercase font-semibold tracking-wider text-[#1E1B19] mb-1.5">
+              Detalhes adicionais (opcional):
+            </label>
+            <textarea
+              rows={2}
+              placeholder="Ex: Gostaria de saber sobre cerimônia no local e horários de visita no sábado..."
+              value={comments}
+              onChange={(e) => setComments(e.target.value)}
+              className="w-full bg-[#F5F0EB] border border-[#E8DFD3] p-2.5 rounded-sm text-xs text-[#2C2825] focus:outline-none focus:border-[#C5A880]"
+            />
+          </div>
+
+          {/* Submit to WhatsApp */}
+          <div className="pt-2">
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2.5 py-4 bg-[#25D366] text-white text-xs font-semibold uppercase tracking-[0.18em] rounded-sm hover:bg-[#20bd5a] transition-all shadow-md hover:shadow-xl"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Receber Proposta Completa no WhatsApp</span>
+            </button>
+            <p className="text-[10px] text-center text-[#85796E] mt-2">
+              Atendimento rápido e exclusivo sem compromisso • Vicente Pires, Brasília
+            </p>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  );
+};

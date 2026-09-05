@@ -1,0 +1,278 @@
+[
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Voltar",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Pesquisar",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Fechar",
+    "role": ""
+  },
+  {
+    "tag": "A",
+    "text": "",
+    "ariaLabel": "Show the Input Tools menu",
+    "role": "button"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Menu",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "\nSalvos",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "\nRecentes",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Espaco Lumier",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "\nBaixar o aplicativo",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "\nAdicionar fotos e vídeos",
+    "ariaLabel": "Adicionar fotos e vídeos",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Saiba mais",
+    "ariaLabel": "Saiba mais sobre a visualização limitada",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Recolher painel lateral",
+    "role": ""
+  },
+  {
+    "tag": "A",
+    "text": "",
+    "ariaLabel": "Google Apps",
+    "role": "button"
+  },
+  {
+    "tag": "A",
+    "text": "Fazer login",
+    "ariaLabel": "Fazer login",
+    "role": ""
+  },
+  {
+    "tag": "A",
+    "text": "",
+    "ariaLabel": "Ver o perfil de Atualiza Maps",
+    "role": ""
+  },
+  {
+    "tag": "A",
+    "text": "Atualiza Maps",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Mostrar localização no mapa",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Menu",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "\nCompartilhar",
+    "ariaLabel": "Compartilhar",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Fechar",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Aumentar zoom",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Mostrar controle deslizante",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Ocultar controle deslizante",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Diminuir zoom",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Navegar pelas imagens do Street View",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Mostrar imagens",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Aumentar zoom",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Diminuir zoom",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "ariaLabel": "Fechar",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Transporte público",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Trânsito",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Bicicleta",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Relevo",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Street View",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Incêndios",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Qualidade ­do ar",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Tempo de viagem",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Medir",
+    "ariaLabel": "",
+    "role": "menuitemcheckbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Padrão",
+    "ariaLabel": "",
+    "role": "radio"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Satélite",
+    "ariaLabel": "",
+    "role": "radio"
+  },
+  {
+    "tag": "BUTTON",
+    "text": " Visualização do globo",
+    "ariaLabel": "",
+    "role": "checkbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": " Marcadores",
+    "ariaLabel": "",
+    "role": "checkbox"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Brasil",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Termos",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Privacidade",
+    "ariaLabel": "",
+    "role": ""
+  },
+  {
+    "tag": "A",
+    "text": "Denunciar um problema",
+    "ariaLabel": "",
+    "role": ""
+  }
+]
