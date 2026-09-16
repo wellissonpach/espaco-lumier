@@ -52,34 +52,46 @@ const EventCardCarousel: React.FC<EventCardCarouselProps> = ({ images, title }) 
       {images.length > 1 && (
         <>
           <button
+            type="button"
             onClick={handlePrev}
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-110 active:scale-95"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-105 active:scale-95 touch-manipulation"
             aria-label="Foto anterior"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
           <button
+            type="button"
             onClick={handleNext}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-110 active:scale-95"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-105 active:scale-95 touch-manipulation"
             aria-label="Próxima foto"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </button>
 
           {/* Photo Counter Pill at Top-Right */}
-          <div className="absolute top-4 right-4 z-20 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] text-white/95 font-medium tracking-wider border border-white/10">
+          <div className="absolute top-4 right-4 z-20 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] text-white/95 font-medium tracking-wider border border-white/10">
             {currentIdx + 1} / {images.length}
           </div>
 
           {/* Mini progress dots */}
-          <div className="absolute bottom-20 left-0 right-0 z-20 flex justify-center gap-1 px-4 pointer-events-none">
+          <div className="absolute bottom-20 left-0 right-0 z-20 flex justify-center items-center gap-1 px-4">
             {images.map((_, dotIdx) => (
-              <span
+              <button
+                type="button"
                 key={dotIdx}
-                className={`h-1 rounded-full transition-all duration-300 ${
-                  dotIdx === currentIdx ? 'w-4 bg-[#C5A880]' : 'w-1 bg-white/40'
-                }`}
-              />
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentIdx(dotIdx);
+                }}
+                aria-label={`Ir para foto ${dotIdx + 1} de ${title}`}
+                className="p-1.5 cursor-pointer touch-manipulation focus:outline-none"
+              >
+                <span
+                  className={`block h-1 rounded-full transition-all duration-300 ${
+                    dotIdx === currentIdx ? 'w-4 bg-[#C5A880]' : 'w-1 bg-white/40 hover:bg-white'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </>
@@ -94,6 +106,24 @@ interface EventTypesSectionProps {
 
 export const EventTypesSection: React.FC<EventTypesSectionProps> = ({ onOpenBudgetModal }) => {
   const [selectedEvent, setSelectedEvent] = useState<EventTypeItem | null>(null);
+
+  useEffect(() => {
+    if (!selectedEvent) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedEvent(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedEvent !== null]);
 
   return (
     <section id="historias" className="py-20 sm:py-28 bg-[#F5F0EB] text-[#2C2825] relative">
@@ -138,7 +168,7 @@ export const EventTypesSection: React.FC<EventTypesSectionProps> = ({ onOpenBudg
                 
                 {/* Overlay Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#FAF8F5]/90 backdrop-blur-sm text-[10px] uppercase tracking-widest font-semibold text-[#1E1B19] rounded-sm">
+                  <span className="px-3 py-1 bg-[#FAF8F5]/90 backdrop-blur-sm text-[11px] uppercase tracking-widest font-semibold text-[#1E1B19] rounded-sm">
                     {event.title}
                   </span>
                 </div>
@@ -213,6 +243,9 @@ export const EventTypesSection: React.FC<EventTypesSectionProps> = ({ onOpenBudg
       {/* Modal for Event Details */}
       {selectedEvent && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-event-title"
           className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 pt-[max(env(safe-area-inset-top),16px)] pb-[max(env(safe-area-inset-bottom),16px)] bg-black/75 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-300"
           onClick={() => setSelectedEvent(null)}
         >
@@ -224,8 +257,8 @@ export const EventTypesSection: React.FC<EventTypesSectionProps> = ({ onOpenBudg
             {/* Close Button */}
             <button
               onClick={() => setSelectedEvent(null)}
-              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 p-2.5 rounded-full bg-white/90 hover:bg-white text-[#1E1B19] transition-colors shadow-md touch-manipulation cursor-pointer"
-              aria-label="Fechar"
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-white/90 hover:bg-white text-[#1E1B19] flex items-center justify-center transition-colors shadow-md touch-manipulation cursor-pointer"
+              aria-label="Fechar modal de detalhes do evento"
             >
               <X className="w-5 h-5" />
             </button>
@@ -240,8 +273,8 @@ export const EventTypesSection: React.FC<EventTypesSectionProps> = ({ onOpenBudg
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B19]/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-6 text-white">
-                <span className="text-[10px] uppercase tracking-widest text-[#D9CFC4]">Experiência Lumier</span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-white">{selectedEvent.title}</h3>
+                <span className="text-[11px] uppercase tracking-widest text-[#D9CFC4]">Experiência Lumier</span>
+                <h3 id="modal-event-title" className="font-serif text-2xl sm:text-3xl font-light text-white">{selectedEvent.title}</h3>
               </div>
             </div>
 

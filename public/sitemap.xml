@@ -1,0 +1,20 @@
+﻿<?xml version=" 1.0\ encoding=\UTF-8\?>
+<urlset xmlns=\http://www.sitemaps.org/schemas/sitemap/0.9\
+ xmlns:image=\http://www.google.com/schemas/sitemap-image/1.1\>
+ <url>
+ <loc>https://espacolumier.com.br/</loc>
+ <lastmod>2026-09-16</lastmod>
+ <changefreq>weekly</changefreq>
+ <priority>1.0</priority>
+ <image:image>
+ <image:loc>https://espacolumier.com.br/og-image.jpg</image:loc>
+ <image:title>Espaço Lumier - Salão Nobre para Casamentos e Eventos em Brasília</image:title>
+ <image:caption>Espaço Lumier em Vicente Pires, Brasília - DF. Cenário para casamentos e grandes eventos.</image:caption>
+ </image:image>
+ <image:image>
+ <image:loc>https://espacolumier.com.br/back1.webp</image:loc>
+ <image:title>Ambiente Nobre do Espaço Lumier</image:title>
+ <image:caption>Salão climatizado com lustres de cristal e decoração cenográfica em Brasília.</image:caption>
+ </image:image>
+ </url>
+</urlset>

@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-16T14:59:15Z",
+  "title": "Design System: Espaço Lumier",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Ouro Champagne Lumier",
+        "canonical": "#C5A880",
+        "tonalRamp": [
+          "#3B3124",
+          "#544633",
+          "#785E34",
+          "#A0865E",
+          "#C5A880",
+          "#D6BF9E",
+          "#E8D9C5",
+          "#F5EFEB"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Ouro Dourado Hover",
+        "canonical": "#B89758",
+        "tonalRamp": [
+          "#362B17",
+          "#504022",
+          "#745D31",
+          "#967A43",
+          "#B89758",
+          "#CAB07A",
+          "#DEC9A1",
+          "#F2E8D3"
+        ]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "Ouro Champagne Envelhecido",
+        "canonical": "#785E34",
+        "tonalRamp": [
+          "#251C0E",
+          "#3F311A",
+          "#5B4625",
+          "#785E34",
+          "#9B7C4B",
+          "#B89B6C",
+          "#D5C099",
+          "#EFE5CE"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Fundo Linho Nobre",
+        "canonical": "#FAF8F5",
+        "tonalRamp": [
+          "#1A1816",
+          "#3B3733",
+          "#615C56",
+          "#8F8880",
+          "#BFB7AD",
+          "#DFD9D1",
+          "#EFECE7",
+          "#FAF8F5"
+        ]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Superfície Alva",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#111111",
+          "#333333",
+          "#555555",
+          "#888888",
+          "#BBBBBB",
+          "#DDDDDD",
+          "#EEEEEE",
+          "#FFFFFF"
+        ]
+      },
+      "neutral-dark": {
+        "role": "neutral",
+        "displayName": "Preto Ébano Profundo",
+        "canonical": "#0D0C0B",
+        "tonalRamp": [
+          "#0D0C0B",
+          "#1A1816",
+          "#292724",
+          "#3D3A36",
+          "#56524D",
+          "#76716A",
+          "#9B958D",
+          "#C6C1B9"
+        ]
+      },
+      "neutral-dark-secondary": {
+        "role": "neutral",
+        "displayName": "Grafite Carvão Quente",
+        "canonical": "#1E1B19",
+        "tonalRamp": [
+          "#141211",
+          "#1E1B19",
+          "#302B28",
+          "#4A433E",
+          "#665D56",
+          "#877C73",
+          "#ABA096",
+          "#D1C9C1"
+        ]
+      },
+      "neutral-text": {
+        "role": "neutral",
+        "displayName": "Texto Grafite Profundo",
+        "canonical": "#2C2825",
+        "tonalRamp": [
+          "#151312",
+          "#2C2825",
+          "#443E3A",
+          "#615A54",
+          "#827972",
+          "#A69D95",
+          "#CDC5BD",
+          "#E8E3DD"
+        ]
+      },
+      "neutral-muted": {
+        "role": "neutral",
+        "displayName": "Texto Cinza Nobre Acolchoado",
+        "canonical": "#6B6158",
+        "tonalRamp": [
+          "#1F1C19",
+          "#35302B",
+          "#4F4841",
+          "#6B6158",
+          "#8B8075",
+          "#ACA297",
+          "#CFC7BE",
+          "#EDE9E4"
+        ]
+      },
+      "border-subtle": {
+        "role": "neutral",
+        "displayName": "Borda Linho Suave",
+        "canonical": "#E8DFD3",
+        "tonalRamp": [
+          "#2B2722",
+          "#474037",
+          "#6A6052",
+          "#918472",
+          "#B8A995",
+          "#D5C8B7",
+          "#E8DFD3",
+          "#F7F3EE"
+        ]
+      },
+      "border-medium": {
+        "role": "neutral",
+        "displayName": "Borda Linho Média",
+        "canonical": "#D9CFC4",
+        "tonalRamp": [
+          "#25221F",
+          "#3E3933",
+          "#5C544C",
+          "#7E7369",
+          "#A3978B",
+          "#C5B9AC",
+          "#D9CFC4",
+          "#F2EDE7"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Editorial",
+        "purpose": "H1 Hero e declarações institucionais de alto impacto emocional."
+      },
+      "headline": {
+        "displayName": "Headline de Seção",
+        "purpose": "Títulos principais das seções temáticas."
+      },
+      "title": {
+        "displayName": "Título de Card",
+        "purpose": "Nomes de ambientes, categorias e pratos gastronômicos."
+      },
+      "body": {
+        "displayName": "Corpo de Leitura",
+        "purpose": "Descrições, especificações e depoimentos."
+      },
+      "label": {
+        "displayName": "Etiqueta e Eyebrow",
+        "purpose": "Badges de categoria, links de navegação e indicadores de capacidade."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hover-ambient",
+        "value": "0 10px 30px -10px rgba(44, 40, 37, 0.12)",
+        "purpose": "Elevação suave em repouso e hover para cards de ambientes e fotos."
+      },
+      {
+        "name": "gold-glow",
+        "value": "0 4px 20px rgba(197, 168, 128, 0.25)",
+        "purpose": "Brilho sutil ao redor dos botões de WhatsApp e CTAs principais."
+      },
+      {
+        "name": "modal-depth",
+        "value": "0 25px 50px -12px rgba(13, 12, 11, 0.4)",
+        "purpose": "Profundidade de sobreposição em modais de simulação de orçamento e lightbox."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-luxe",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curva de transição serena e suave para aberturas de modal e carrosséis."
+      },
+      {
+        "name": "duration-fast",
+        "value": "200ms",
+        "purpose": "Transições de hover em botões e links."
+      },
+      {
+        "name": "duration-smooth",
+        "value": "500ms",
+        "purpose": "Transições de cabeçalho e rotação de fotos em carrosséis."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary WhatsApp Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Botão primário de alta conversão para atendimento via WhatsApp Concierge.",
+      "html": "<button class=\"ds-btn-primary\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.16 1.6 5.97L0 24l6.23-1.63a11.9 11.9 0 0 0 5.83 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.21-3.52-8.43z\"/></svg>CONVERSAR NO WHATSAPP</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #C5A880; color: #FAF8F5; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; padding: 10px 18px; border: none; border-radius: 4px; box-shadow: 0 4px 14px rgba(197, 168, 128, 0.25); cursor: pointer; transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; } .ds-btn-primary:hover { background: #B89758; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(197, 168, 128, 0.35); } .ds-icon { width: 14px; height: 14px; fill: currentColor; }"
+    },
+    {
+      "name": "Secondary Dark Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Botão de ação institucional para abrir catálogos de fotos e detalhes do espaço.",
+      "html": "<button class=\"ds-btn-dark\"><span>VER CATÁLOGO COMPLETO</span><span class=\"ds-arrow\">→</span></button>",
+      "css": ".ds-btn-dark { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #1E1B19; color: #FAF8F5; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; padding: 10px 20px; border: 1px solid #302B28; border-radius: 2px; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; } .ds-btn-dark:hover { background: #785E34; border-color: #785E34; transform: translateY(-1px); } .ds-arrow { color: #C5A880; font-size: 14px; transition: transform 0.2s ease; } .ds-btn-dark:hover .ds-arrow { transform: translateX(3px); }"
+    },
+    {
+      "name": "Pill Badge Tag",
+      "kind": "chip",
+      "refersTo": "badge-pill",
+      "description": "Pílula de destaque sobre imagens ou no topo de seções.",
+      "html": "<div class=\"ds-badge-pill\"><span class=\"ds-star\">✦</span><span>ARQUITETURA & CONFORTO</span></div>",
+      "css": ".ds-badge-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: rgba(250, 248, 245, 0.92); border: 1px solid #E8DFD3; border-radius: 9999px; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: #1E1B19; backdrop-filter: blur(4px); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); } .ds-star { color: #C5A880; font-size: 11px; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card-feature",
+      "description": "Card de apresentação de ambientes, mobiliário e buffet.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-header\"><span class=\"ds-card-tag\">SALÃO CLIMATIZADO</span><h3 class=\"ds-card-title\">Salão Nobre Principal</h3></div><p class=\"ds-card-desc\">Amplo salão com pé direito duplo, arcos clássicos de vidro e lustres de cristal para até 300 convidados.</p></div>",
+      "css": ".ds-card { background: #FAF8F5; border: 1px solid #E8DFD3; border-radius: 4px; padding: 24px; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; transition: box-shadow 0.3s ease, border-color 0.3s ease; } .ds-card:hover { border-color: #C5A880; box-shadow: 0 10px 30px -10px rgba(44, 40, 37, 0.12); } .ds-card-tag { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #785E34; margin-bottom: 6px; } .ds-card-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 500; color: #1E1B19; margin: 0 0 10px 0; } .ds-card-desc { font-size: 13px; font-weight: 300; line-height: 1.6; color: #6B6158; margin: 0; }"
+    },
+    {
+      "name": "Form Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo de texto do simulador de orçamento interativo.",
+      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Seu nome completo\" />",
+      "css": ".ds-input { width: 100%; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E8DFD3; border-radius: 4px; padding: 12px 16px; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; color: #2C2825; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; } .ds-input:focus { border-color: #C5A880; box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.2); } .ds-input::placeholder { color: #A0978E; }"
+    },
+    {
+      "name": "Editorial Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Item de menu do cabeçalho flutuante com sublinhado expansivo.",
+      "html": "<a href=\"#\" class=\"ds-nav-link\"><span>O ESPAÇO</span><span class=\"ds-nav-underline\"></span></a>",
+      "css": ".ds-nav-link { display: inline-flex; flex-direction: column; position: relative; text-decoration: none; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: #4A433E; padding: 4px 0; transition: color 0.2s ease; } .ds-nav-link:hover { color: #C5A880; } .ds-nav-underline { height: 1px; background: #C5A880; width: 0; transition: width 0.3s ease; align-self: flex-start; } .ds-nav-link:hover .ds-nav-underline { width: 100%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Palácio de Cristal e Afeto",
+    "overview": "O Espaço Lumier traduz o encontro poético entre a suntuosidade de um palácio de celebrações clássico — marcado por imponentes lustres de cristal lapidado, arcos coloniais envidraçados e prataria suntuosa — e a calidez do afeto humano que há mais de duas décadas acolhe famílias em Brasília. O sistema visual rejeita deliberadamente tanto o luxo asséptico e impessoal quanto o imediatismo comercial de casas de festa genéricas. Cada tela respira amplitude, nobreza editorial e acolhimento tangível.\n\nA paleta de cores ancora-se no calor luminoso do linho natural cru (#FAF8F5) e no dourado champanhe mineral (#C5A880), entrecortados pelo contraste solene do carvão nobre (#1E1B19 e #0D0C0B). A tipografia estabelece um diálogo lírico entre a elegância atemporal da Cormorant Garamond e Playfair Display nos títulos, e a precisão funcional e arejada da Plus Jakarta Sans nos textos de apoio e dados informativos.",
+    "keyCharacteristics": [
+      "Nobreza Sem Frieza: Atmosfera cinematográfica com iluminação cênica âmbar, texturas de linho e reflexos de cristal.",
+      "Rigor Editorial: Uso equilibrado de espaço negativo, proporções clássicas e divisores dourados delicados de 1px com o glifo estelar ✦.",
+      "Veracidade Fotográfica: Planos fechados e abertos de eventos reais, rechauds fumegantes em prata, arranjos florais exuberantes e noivas sorridentes.",
+      "Micro-Interações Serenas: Transições suaves de 300ms a 500ms, ausência de animações estridentes e botões táteis refinados."
+    ],
+    "rules": [
+      {
+        "name": "The Lumier 10% Gold Rule",
+        "body": "O tom dourado champanhe (#C5A880) nunca deve cobrir mais de 10% da área visual de qualquer viewport. Sua nobreza reside na raridade de sua aplicação, operando como jóia focal e guia de olhar.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Pitch-Black Rule",
+        "body": "Textos nunca utilizam preto puro (#000000). Todas as áreas escuras carregam matizes aquecidos de carvão (#1E1B19 ou #2C2825) para preservar a sensação calorosa e humana da marca.",
+        "section": "colors"
+      },
+      {
+        "name": "The Golden Italic Accent Rule",
+        "body": "Títulos Display de grande impacto devem reservar sua palavra emocionalmente culminante ('inesquecíveis', 'perfeição', 'afeto') para ser renderizada em itálico com o tom Ouro Champagne (#C5A880).",
+        "section": "typography"
+      },
+      {
+        "name": "The Letterspaced Eyebrow Rule",
+        "body": "Todo subtítulo de categoria ou badge precede o título em caixa alta, corpo reduzido (10px a 11px) e espaçamento generoso (letter-spacing >= 0.15em), ancorando a hierarquia visual.",
+        "section": "typography"
+      },
+      {
+        "name": "The Candlelight Glow Rule",
+        "body": "Sombras duras e opacas são proibidas. As sombras devem ser sempre quentes, difusas e com baixa opacidade, transmitindo a sensação de um ambiente banhado por iluminação indireta.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do priorizar sempre fotografias reais de celebrações ocorridas no Espaço Lumier (salão, mesas montadas, buffet, iluminação, pista Paris).",
+      "Do utilizar a combinação tipográfica Cormorant Garamond nos títulos e Plus Jakarta Sans no corpo de texto.",
+      "Do manter os tons de fundo ancorados no bege linho (#FAF8F5) e no carvão aquecido (#1E1B19).",
+      "Do garantir que todos os botões de ação culminem em conexões diretas com o atendimento humano (WhatsApp Concierge ou Simulador de Orçamento).",
+      "Do aplicar o divisor dourado com ✦ para separar blocos conceituais de conteúdo."
+    ],
+    "donts": [
+      "Don't utilizar preto absoluto (#000000) para textos ou fundos, exceto em overlays de modal quando estritamente necessário.",
+      "Don't aplicar cores saturadas ou vibrantes (vermelho neon, azul elétrico, verde limão) que firam a elegância atemporal do espaço.",
+      "Don't usar sombras duras, opacas ou pretas com alto contraste que pareçam recortes digitais artificiais.",
+      "Don't sobrecarregar telas com dourado excessivo; lembre-se da Lumier 10% Gold Rule.",
+      "Don't inventar depoimentos ou fotos de banco de imagem quando houver acervo fotográfico autoral disponível."
+    ]
+  }
+}

@@ -10,17 +10,28 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenBudget
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Close on outside click
+  // Close on outside click or Escape key
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
         setIsOpen(false);
       }
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
     if (isOpen) {
       document.addEventListener('mousedown', handleOutsideClick);
+      window.addEventListener('keydown', handleKeyDown);
     }
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [isOpen]);
 
   const handleOpenModal = () => {
@@ -41,7 +52,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenBudget
           <div className="flex items-center justify-between pb-2 border-b border-white/10 px-1">
             <div className="flex items-center gap-1.5 text-[#C5A880]">
               <Sparkles className="w-3.5 h-3.5" />
-              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold">
+              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold">
                 Atendimento Lumier
               </span>
             </div>
@@ -68,7 +79,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenBudget
                 <span className="text-xs font-semibold text-white tracking-wide">
                   Simular Orçamento
                 </span>
-                <span className="text-[10px] text-[#D9CFC4]/75">
+                <span className="text-[11px] text-[#D9CFC4]/75">
                   Calcule valores do seu evento
                 </span>
               </div>
@@ -92,7 +103,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenBudget
                 <span className="text-xs font-semibold text-white tracking-wide">
                   Falar pelo WhatsApp
                 </span>
-                <span className="text-[10px] text-[#D9CFC4]/75">
+                <span className="text-[11px] text-[#D9CFC4]/75">
                   Conversar com nossa equipe
                 </span>
               </div>

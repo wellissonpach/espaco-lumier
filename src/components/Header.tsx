@@ -23,6 +23,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile drawer on Escape key
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { label: 'O Espaço', href: '#espaco' },
     { label: 'Celebrações', href: '#historias' },
@@ -115,9 +125,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
               href={getWhatsAppUrl('Olá! Gostaria de conversar com a equipe do Espaço Lumier sobre a disponibilidade de datas e orçamento.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] bg-[#C5A880] hover:bg-[#b89758] text-white transition-all duration-300 rounded-md shadow-sm hover:shadow-md cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] bg-[#C5A880] hover:bg-[#b89758] text-[#1E1B19] transition-all duration-300 rounded-md shadow-sm hover:shadow-md cursor-pointer"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-current" />
+              <MessageCircle className="w-3.5 h-3.5 fill-current text-[#1E1B19]" />
               <span>WhatsApp</span>
             </a>
           </div>
@@ -127,8 +137,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded-sm text-[#C5A880] hover:bg-[#C5A880]/10 transition-colors focus:outline-none"
-              aria-label="Abrir menu"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-sm text-[#C5A880] hover:bg-[#C5A880]/10 transition-colors focus:outline-none touch-manipulation"
+              aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation-drawer"
             >
               {mobileMenuOpen ? <X className="w-7 h-7 text-[#C5A880]" /> : <Menu className="w-7 h-7 text-[#C5A880]" />}
             </button>
@@ -138,7 +150,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#FAF8F5] border-b border-[#E8DFD3] text-[#2C2825] shadow-xl animate-in slide-in-from-top duration-300">
+        <div id="mobile-navigation-drawer" role="region" aria-label="Menu de Navegação Mobile" className="xl:hidden bg-[#FAF8F5] border-b border-[#E8DFD3] text-[#2C2825] shadow-xl animate-in slide-in-from-top duration-300">
           <div className="max-w-7xl mx-auto px-6 py-6 space-y-4">
             <div className="flex items-center gap-3 pb-3 border-b border-[#E8DFD3]">
               <img
@@ -150,7 +162,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
                 <span className="text-xs font-semibold uppercase tracking-widest text-[#1E1B19]">
                   Espaço Lumier
                 </span>
-                <span className="text-[10px] uppercase tracking-wider text-[#85796E]">
+                <span className="text-[11px] uppercase tracking-wider text-[#85796E]">
                   Vicente Pires — Brasília, DF
                 </span>
               </div>
@@ -162,7 +174,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-xs uppercase tracking-[0.16em] font-medium text-[#4A433E] hover:text-[#C5A880] py-2 border-b border-dashed border-[#E8DFD3]/60"
+                  className="text-xs uppercase tracking-[0.16em] font-medium text-[#4A433E] hover:text-[#C5A880] py-2.5 min-h-[44px] flex items-center border-b border-dashed border-[#E8DFD3]/60"
                 >
                   {link.label}
                 </a>
@@ -176,7 +188,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
                   setMobileMenuOpen(false);
                   onOpenBudgetModal();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-3 border border-[#C5A880] text-[#785E34] text-xs font-semibold uppercase tracking-widest hover:bg-[#C5A880]/10 transition-colors rounded-md cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 py-3.5 border border-[#C5A880] text-[#785E34] text-xs font-semibold uppercase tracking-widest hover:bg-[#C5A880]/10 transition-colors rounded-md cursor-pointer touch-manipulation min-h-[44px]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Simular Orçamento / Visita</span>
@@ -187,9 +199,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudgetModal }) => {
                 href={getWhatsAppUrl('Olá! Gostaria de conversar com a equipe do Espaço Lumier pelo WhatsApp.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 bg-[#C5A880] text-white text-xs font-semibold uppercase tracking-widest hover:bg-[#b89758] transition-colors shadow-sm rounded-md"
+                className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#C5A880] text-[#1E1B19] text-xs font-bold uppercase tracking-widest hover:bg-[#b89758] transition-colors shadow-sm rounded-md touch-manipulation min-h-[44px]"
               >
-                <MessageCircle className="w-4 h-4 fill-current" />
+                <MessageCircle className="w-4 h-4 fill-current text-[#1E1B19]" />
                 <span>Falar pelo WhatsApp</span>
               </a>
             </div>

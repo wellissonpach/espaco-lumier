@@ -56,7 +56,7 @@ export const DecorationSection: React.FC<DecorationSectionProps> = ({ onSelectIm
             <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B19] via-[#1E1B19]/40 to-transparent"></div>
 
             <div className="relative z-10 p-6 sm:p-10">
-              <span className="px-3 py-1 bg-[#C5A880] text-[#1E1B19] text-[10px] uppercase font-bold tracking-widest rounded-sm mb-3 inline-block">
+              <span className="px-3 py-1 bg-[#C5A880] text-[#1E1B19] text-[11px] uppercase font-bold tracking-widest rounded-sm mb-3 inline-block">
                 Cenografia Monumental
               </span>
               <h3 className="font-serif text-2xl sm:text-4xl font-normal text-white mb-2 leading-tight">
@@ -82,7 +82,7 @@ export const DecorationSection: React.FC<DecorationSectionProps> = ({ onSelectIm
               <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B19] via-[#1E1B19]/30 to-transparent"></div>
               
               <div className="relative z-10 p-6">
-                <span className="text-[10px] uppercase tracking-widest text-[#C5A880] font-semibold">
+                <span className="text-[11px] uppercase tracking-widest text-[#C5A880] font-semibold">
                   Mobiliário & Acabamentos
                 </span>
                 <h4 className="font-serif text-xl sm:text-2xl text-white font-light mt-1">
@@ -102,7 +102,7 @@ export const DecorationSection: React.FC<DecorationSectionProps> = ({ onSelectIm
               <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B19] via-[#1E1B19]/30 to-transparent"></div>
               
               <div className="relative z-10 p-6">
-                <span className="text-[10px] uppercase tracking-widest text-[#C5A880] font-semibold">
+                <span className="text-[11px] uppercase tracking-widest text-[#C5A880] font-semibold">
                   Luminotécnica & Velas
                 </span>
                 <h4 className="font-serif text-xl sm:text-2xl text-white font-light mt-1">

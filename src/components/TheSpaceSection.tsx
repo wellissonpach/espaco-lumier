@@ -134,19 +134,21 @@ const SpaceCardCarousel: React.FC<SpaceCardCarouselProps> = ({ images, title, on
 
       {/* Prev / Next Arrows */}
       <button
+        type="button"
         onClick={handlePrev}
-        className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-85 sm:opacity-0 sm:group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-110 active:scale-95"
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-90 sm:opacity-0 sm:group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-105 active:scale-95 touch-manipulation"
         aria-label="Foto anterior"
       >
-        <ChevronLeft className="w-4 h-4" />
+        <ChevronLeft className="w-5 h-5" />
       </button>
 
       <button
+        type="button"
         onClick={handleNext}
-        className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-85 sm:opacity-0 sm:group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-110 active:scale-95"
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-90 sm:opacity-0 sm:group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer shadow-lg hover:scale-105 active:scale-95 touch-manipulation"
         aria-label="Próxima foto"
       >
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Photo Counter Pill */}
@@ -164,14 +166,24 @@ const SpaceCardCarousel: React.FC<SpaceCardCarouselProps> = ({ images, title, on
       </div>
 
       {/* Mini Progress Dots */}
-      <div className="absolute bottom-3 left-0 right-0 z-20 flex justify-center gap-1 px-4 pointer-events-none">
+      <div className="absolute bottom-2 left-0 right-0 z-20 flex justify-center items-center gap-1 px-4">
         {images.map((_, dotIdx) => (
-          <span
+          <button
+            type="button"
             key={dotIdx}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              dotIdx === currentIdx ? 'w-4 bg-[#C5A880]' : 'w-1 bg-white/40'
-            }`}
-          />
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrentIdx(dotIdx);
+            }}
+            aria-label={`Ir para foto ${dotIdx + 1} de ${title}`}
+            className="p-1.5 cursor-pointer touch-manipulation focus:outline-none"
+          >
+            <span
+              className={`block h-1.5 rounded-full transition-all duration-300 ${
+                dotIdx === currentIdx ? 'w-4 bg-[#C5A880]' : 'w-1.5 bg-white/50 hover:bg-white'
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
@@ -182,8 +194,9 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
   const [catalogModal, setCatalogModal] = useState<CatalogModalState | null>(null);
 
   useEffect(() => {
+    if (!catalogModal) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!catalogModal) return;
       if (e.key === 'Escape') setCatalogModal(null);
       if (e.key === 'ArrowLeft') {
         setCatalogModal((prev) =>
@@ -207,16 +220,14 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
       }
     };
 
-    if (catalogModal) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    }
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     };
-  }, [catalogModal]);
+  }, [catalogModal !== null]);
 
   const openCatalog = (feature: SpaceFeature, initialIndex: number = 0) => {
     if (feature.gallery && feature.gallery.length > 0) {
@@ -304,17 +315,18 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
                       {onSelectImageForLightbox && (
                         <button
                           onClick={() => onSelectImageForLightbox(item.image, item.title, item.description)}
-                          className="absolute top-3 right-3 p-2 bg-black/40 hover:bg-black/70 text-white rounded-full transition-colors cursor-pointer"
+                          className="absolute top-3 right-3 min-w-[44px] min-h-[44px] flex items-center justify-center p-2.5 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors cursor-pointer touch-manipulation shadow-sm"
+                          aria-label="Ampliar foto"
                           title="Ampliar foto"
                         >
-                          <Maximize2 className="w-3.5 h-3.5" />
+                          <Maximize2 className="w-4 h-4" />
                         </button>
                       )}
                     </>
                   )}
                   
                   {/* Badge */}
-                  <span className="absolute top-3 left-3 z-20 px-2.5 py-1 bg-[#FAF8F5]/90 backdrop-blur-sm text-[10px] font-semibold tracking-wider text-[#1E1B19] uppercase rounded-sm shadow-sm pointer-events-none">
+                  <span className="absolute top-3 left-3 z-20 px-2.5 py-1 bg-[#FAF8F5]/90 backdrop-blur-sm text-[11px] font-semibold tracking-wider text-[#1E1B19] uppercase rounded-sm shadow-sm pointer-events-none">
                     {item.tag}
                   </span>
                 </div>
@@ -342,7 +354,7 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
                     <div className="pt-4 mt-4 border-t border-[#E8DFD3]/60">
                       <button
                         onClick={() => openCatalog(item, 0)}
-                        className="w-full py-2.5 px-4 bg-[#1E1B19] hover:bg-[#785E34] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-md cursor-pointer group/btn"
+                        className="w-full py-3 px-4 bg-[#1E1B19] hover:bg-[#785E34] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-md cursor-pointer group/btn min-h-[44px] touch-manipulation"
                       >
                         <Images className="w-4 h-4 text-[#C5A880] group-hover/btn:scale-110 transition-transform" />
                         <span>Ver Catálogo de Fotos ({item.gallery!.length} fotos)</span>
@@ -356,15 +368,15 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
           })}
         </div>
 
-        {/* Space Visit Banner */}
-        <div className="mt-16 text-center">
+        {/* Footnote CTA */}
+        <div className="mt-12 sm:mt-16 text-center">
           <a
-            href={getWhatsAppUrl('Olá! Gostaria de agendar um horário para fazer um tour presencial pelo Espaço Lumier em Vicente Pires.')}
+            href={getWhatsAppUrl('Olá! Gostaria de agendar uma visita presencial para conhecer o Salão Nobre e a estrutura completa do Espaço Lumier.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#1E1B19] text-[#FAF8F5] text-xs font-semibold uppercase tracking-[0.2em] rounded-sm hover:bg-[#38332F] transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#785E34] hover:text-[#C5A880] transition-colors group cursor-pointer py-2 min-h-[44px]"
           >
-            <span>Agendar Tour Presencial com Café de Boas-Vindas</span>
+            <span>Deseja conhecer nosso salão pessoalmente? Agende uma visita guiada</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -374,6 +386,9 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
       {/* PHOTO CATALOG MODAL */}
       {catalogModal && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Catálogo de Fotos — ${catalogModal.title}`}
           className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-2 sm:p-6 pt-[max(env(safe-area-inset-top),16px)] pb-[max(env(safe-area-inset-bottom),16px)] bg-black/92 backdrop-blur-md overflow-y-auto animate-in fade-in duration-300"
           onClick={() => setCatalogModal(null)}
         >
@@ -413,7 +428,7 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
                 </div>
                 <button
                   onClick={() => setCatalogModal(null)}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer touch-manipulation"
                   aria-label="Fechar catálogo"
                 >
                   <X className="w-5 h-5" />
@@ -433,24 +448,31 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
               {/* Navigation Arrows */}
               <button
                 onClick={handleModalPrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md transition-all hover:scale-110 cursor-pointer shadow-xl border border-white/10"
+                className="absolute left-3 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md transition-all hover:scale-105 cursor-pointer shadow-xl border border-white/10 touch-manipulation"
                 aria-label="Foto anterior"
               >
-                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                <ChevronLeft className="w-5 h-5" />
               </button>
 
               <button
                 onClick={handleModalNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md transition-all hover:scale-110 cursor-pointer shadow-xl border border-white/10"
+                className="absolute right-3 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md transition-all hover:scale-105 cursor-pointer shadow-xl border border-white/10 touch-manipulation"
                 aria-label="Próxima foto"
               >
-                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                <ChevronRight className="w-5 h-5" />
               </button>
 
-              {/* Caption Overlay */}
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 sm:px-6 text-center">
-                <p className="text-xs sm:text-sm text-[#FAF8F5] font-light drop-shadow-md">
-                  {catalogModal.id === 'salao-nobre'
+              <div className="absolute bottom-3 right-3 bg-black/75 backdrop-blur-sm px-2.5 py-1 rounded-full text-[11px] text-white/90 border border-white/15">
+                {catalogModal.currentIndex + 1} / {catalogModal.images.length}
+              </div>
+            </div>
+
+            {/* Caption & Context Bar */}
+            <div className="p-4 sm:p-5 bg-[#1A1816] border-t border-white/10">
+              <div className="flex items-start gap-2.5">
+                <Sparkles className="w-4 h-4 text-[#C5A880] mt-0.5 flex-shrink-0" />
+                <p className="text-xs sm:text-sm text-[#F5F0EB] font-light leading-relaxed">
+                  {catalogModal.id === 'hall-nobre'
                     ? (HALL2_CAPTIONS[catalogModal.currentIndex] || catalogModal.description)
                     : catalogModal.id === 'mesas-montadas'
                     ? (MESAS_CAPTIONS[catalogModal.currentIndex] || catalogModal.description)
@@ -476,7 +498,7 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
                     <button
                       key={thumb}
                       onClick={() => setCatalogModal({ ...catalogModal, currentIndex: idx })}
-                      className={`relative flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-sm overflow-hidden border-2 transition-all cursor-pointer ${
+                      className={`relative flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-sm overflow-hidden border-2 transition-all cursor-pointer touch-manipulation ${
                         isActive
                           ? 'border-[#C5A880] ring-2 ring-[#C5A880]/50 scale-105 opacity-100'
                           : 'border-transparent opacity-50 hover:opacity-85'
@@ -489,7 +511,7 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
-                      <span className="absolute bottom-0.5 right-1 text-[9px] bg-black/70 px-1 rounded text-white font-mono">
+                      <span className="absolute bottom-0.5 right-1 text-[11px] bg-black/70 px-1 rounded text-white font-mono">
                         {idx + 1}
                       </span>
                     </button>
@@ -519,9 +541,9 @@ export const TheSpaceSection: React.FC<TheSpaceSectionProps> = ({ onSelectImageF
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-xs rounded-sm transition-colors shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#C5A880] hover:bg-[#b89758] text-[#1E1B19] font-bold text-xs uppercase tracking-wider rounded-sm transition-all shadow-md min-h-[44px] cursor-pointer touch-manipulation"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4 fill-current text-[#1E1B19]" />
                   <span>
                     {catalogModal.id === 'mesas-montadas'
                       ? 'Quero Personalizar a Decoração do Meu Evento'

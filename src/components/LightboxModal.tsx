@@ -28,7 +28,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     };
   }, [image, onClose, onPrev, onNext]);
 
@@ -36,6 +36,9 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={image.title}
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 pt-[max(env(safe-area-inset-top),16px)] pb-[max(env(safe-area-inset-bottom),16px)] bg-black/90 backdrop-blur-md animate-in fade-in duration-300"
       onClick={onClose}
     >
@@ -46,7 +49,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-30 p-2.5 rounded-full bg-black/70 hover:bg-black text-white transition-colors cursor-pointer touch-manipulation shadow-md"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-30 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/70 hover:bg-black text-white transition-colors cursor-pointer touch-manipulation shadow-md"
           aria-label="Fechar visualização"
         >
           <X className="w-5 h-5" />
@@ -65,20 +68,20 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           {onPrev && (
             <button
               onClick={onPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white transition-colors"
+              className="absolute left-3 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/50 hover:bg-black/80 text-white transition-colors cursor-pointer touch-manipulation"
               aria-label="Foto anterior"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
           )}
 
           {onNext && (
             <button
               onClick={onNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/50 hover:bg-black/80 text-white transition-colors cursor-pointer touch-manipulation"
               aria-label="Próxima foto"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-6 h-6" />
             </button>
           )}
         </div>
@@ -86,7 +89,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         {/* Image Details Sidebar */}
         <div className="md:w-1/3 p-6 sm:p-8 bg-[#181513] text-[#FAF8F5] flex flex-col justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[#C5A880] text-[10px] uppercase font-bold tracking-widest mb-3">
+            <div className="inline-flex items-center gap-1.5 text-[#C5A880] text-[11px] uppercase font-bold tracking-widest mb-3">
               <Sparkles className="w-3 h-3" />
               <span>{image.categoryLabel} • Espaço Lumier</span>
             </div>
@@ -105,13 +108,13 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
               href={getWhatsAppUrl(`Olá! Vi a foto "${image.title}" na galeria do Espaço Lumier e gostaria de solicitar um orçamento para um estilo parecido!`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#25D366] text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-[#20bd5a] transition-all shadow-md"
+              className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#C5A880] hover:bg-[#b89758] text-[#1E1B19] text-xs font-bold uppercase tracking-wider rounded-sm transition-all shadow-md min-h-[44px] cursor-pointer touch-manipulation"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
+              <MessageCircle className="w-4 h-4 fill-current text-[#1E1B19]" />
               <span>Quero Este Estilo no WhatsApp</span>
             </a>
 
-            <p className="text-[10px] text-center text-[#85796E]">
+            <p className="text-[11px] text-center text-[#85796E]">
               Vicente Pires — Brasília, DF
             </p>
           </div>

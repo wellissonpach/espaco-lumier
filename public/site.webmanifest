@@ -1,0 +1,21 @@
+﻿{
+  " name\: \Espaço Lumier\,
+ \short_name\: \Espaço Lumier\,
+ \description\: \Espaço nobre para casamentos buffet e eventos em Vicente Pires Brasília - DF\,
+ \icons\: [
+ {
+ \src\: \/icon-192.png\,
+ \sizes\: \192x192\,
+ \type\: \image/png\
+ },
+ {
+ \src\: \/icon-512.png\,
+ \sizes\: \512x512\,
+ \type\: \image/png\
+ }
+ ],
+ \theme_color\: \#0D0C0B\,
+ \background_color\: \#FAF8F5\,
+ \display\: \standalone\,
+ \start_url\: \/\
+}

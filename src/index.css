@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #C5A880;
+  --color-primary-hover: #B89758;
+  --color-primary-deep: #785E34;
+  --color-neutral-bg: #FAF8F5;
+  --color-neutral-surface: #FFFFFF;
+  --color-neutral-dark: #0D0C0B;
+  --color-neutral-dark-secondary: #1E1B19;
+  --color-neutral-text: #2C2825;
+  --color-neutral-muted: #6B6158;
+  --color-border-subtle: #E8DFD3;
+  --color-border-medium: #D9CFC4;
+
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
 @layer base {
   :root {
     --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
@@ -48,3 +66,31 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #C5A880;
 }
+
+/* Luxury text selection */
+::selection {
+  background-color: #C5A880;
+  color: #1E1B19;
+}
+
+/* Accessible focus visible ring across all interactive controls */
+:focus-visible {
+  outline: 2px solid #C5A880;
+  outline-offset: 2px;
+}
+
+/* Accessibility: Support prefers-reduced-motion while preserving essential feedback */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+

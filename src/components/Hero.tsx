@@ -97,13 +97,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBudgetModal }) => {
     >
       {/* Background Media Container */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Desktop: Imagem fotográfica de alta resolução */}
+        {/* Desktop: Imagem fotográfica de alta resolução otimizada em WebP */}
         <img
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2560&auto=format&fit=crop"
-          alt="Espaço Lumier - Cenário para casamentos e eventos inesquecíveis em Brasília"
+          src="/back1.webp"
+          alt="Espaço Lumier - Salão nobre para casamentos e eventos em Brasília"
           className="hidden sm:block w-full h-full object-cover object-center"
           loading="eager"
-          referrerPolicy="no-referrer"
+          fetchPriority="high"
         />
 
         {/* Mobile: Vídeo ultra-otimizado com poster em WebP */}
@@ -156,17 +156,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBudgetModal }) => {
           {/* Badge Pill */}
           <div
             id="hero-badge"
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C5A880]/35 bg-black/40 backdrop-blur-md text-[#F5F0EB] text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-medium mb-6 sm:mb-8 shadow-sm -translate-y-6 sm:translate-y-0"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C5A880]/35 bg-black/40 backdrop-blur-md text-[#F5F0EB] text-[11px] uppercase tracking-[0.22em] font-medium mb-6 sm:mb-8 shadow-sm -translate-y-6 sm:translate-y-0"
           >
             <span className="text-[#C5A880] text-xs leading-none">✦</span>
             <span>Mais de duas décadas realizando sonhos</span>
           </div>
 
-          {/* Headline H1 (Single H1 for SEO, 4 lines, italic gold flourish) */}
+          {/* Headline H1 (Single H1 for SEO, incorporating primary keywords with editorial elegance) */}
           <h1
             id="hero-main-title"
             className="font-serif text-[38px] sm:text-6xl md:text-7xl lg:text-[76px] font-light text-[#FAF8F5] leading-[1.12] sm:leading-[1.08] tracking-tight"
           >
+            <span className="sr-only">Espaço para Casamentos e Eventos em Brasília — </span>
             O cenário para<br />
             os momentos que<br />
             merecem ser<br />
@@ -183,9 +184,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBudgetModal }) => {
           {/* Subtitle */}
           <p
             id="hero-subtitle"
-            className="text-[13px] sm:text-base text-[#D9CFC4] font-light max-w-lg sm:max-w-xl leading-relaxed tracking-wide mb-8 sm:mb-10"
+            className="text-sm sm:text-base text-[#D9CFC4] font-light max-w-lg sm:max-w-xl leading-relaxed tracking-wide mb-8 sm:mb-10"
           >
-            Espaço, buffet e decoração para transformar sua celebração em uma experiência única em <span className="text-[#C5A880] font-normal">Vicente Pires — Brasília.</span>
+            Salão nobre climatizado, alta gastronomia e decoração cenográfica para casamentos, 15 anos e eventos em <span className="text-[#C5A880] font-normal">Vicente Pires — Brasília.</span>
           </p>
 
           {/* Action Button */}
@@ -194,7 +195,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBudgetModal }) => {
             <button
               id="hero-cta-primary"
               onClick={() => handleScrollToSection('espaco')}
-              className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-center gap-3 px-6 sm:px-8 py-4 bg-[#C5A880] hover:bg-[#b89758] text-[#1E1B19] text-xs font-bold uppercase tracking-[0.18em] rounded-xl transition-all duration-300 shadow-[0_6px_28px_rgba(197,168,128,0.4)] hover:shadow-xl hover:translate-y-[-1px] cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-center gap-3 px-6 sm:px-8 py-4 bg-[#C5A880] hover:bg-[#b89758] text-[#1E1B19] text-xs font-bold uppercase tracking-[0.18em] rounded-xl transition-all duration-300 shadow-[0_6px_28px_rgba(197,168,128,0.4)] hover:shadow-xl hover:translate-y-[-1px] cursor-pointer touch-manipulation min-h-[48px]"
             >
               <span className="text-[#785E34] text-xs">✦</span>
               <span className="flex-1 text-center sm:flex-initial">QUERO CONHECER O ESPAÇO</span>
@@ -218,7 +219,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBudgetModal }) => {
               <span className="w-1 h-1.5 bg-[#C5A880] rounded-full animate-pulse"></span>
             </div>
             
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#C5A880]/85 sm:text-white/70 font-medium whitespace-nowrap">
+            <span className="text-[11px] uppercase tracking-[0.24em] text-[#C5A880]/85 sm:text-white/70 font-medium whitespace-nowrap">
               <span className="sm:hidden">ARRASTE PARA EXPLORAR</span>
               <span className="hidden sm:inline">ROLE PARA EXPLORAR</span>
             </span>

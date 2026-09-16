@@ -48,15 +48,15 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenBudgetMo
             href={getWhatsAppUrl('Olá! Gostaria de conversar com o Concierge do Espaço Lumier sobre a realização do meu evento.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 px-9 py-4 bg-[#25D366] text-white text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] rounded-sm hover:bg-[#20bd5a] transition-all shadow-xl hover:shadow-2xl hover:scale-[1.02]"
+            className="inline-flex items-center justify-center gap-3 px-9 py-4 bg-[#C5A880] hover:bg-[#b89758] text-[#1E1B19] text-xs sm:text-sm font-bold uppercase tracking-[0.2em] rounded-sm transition-all shadow-xl hover:shadow-2xl hover:scale-[1.02] cursor-pointer touch-manipulation min-h-[48px]"
           >
-            <MessageCircle className="w-5 h-5 fill-current" />
+            <MessageCircle className="w-5 h-5 fill-current text-[#1E1B19]" />
             <span>Falar com Concierge</span>
           </a>
 
           <button
             onClick={() => onOpenBudgetModal()}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FAF8F5] text-[#1E1B19] text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] rounded-sm hover:bg-[#EFE9E1] transition-all shadow-lg hover:scale-[1.02]"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FAF8F5] text-[#1E1B19] text-xs sm:text-sm font-bold uppercase tracking-[0.2em] rounded-sm hover:bg-[#EFE9E1] transition-all shadow-lg hover:scale-[1.02] cursor-pointer touch-manipulation min-h-[48px]"
           >
             <Calendar className="w-4 h-4" />
             <span>Simular Orçamento</span>

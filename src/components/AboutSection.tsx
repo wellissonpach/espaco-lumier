@@ -27,9 +27,12 @@ export const AboutSection: React.FC = () => {
 
   useEffect(() => {
     if (isPaused) return;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) return;
+
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % HALL_IMAGES.length);
-    }, 2000);
+    }, 3500);
     return () => clearInterval(timer);
   }, [isPaused]);
 
@@ -100,7 +103,7 @@ export const AboutSection: React.FC = () => {
                 {/* Seta de voltar (Previous Button) */}
                 <button
                   onClick={handlePrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1E1B19]/60 hover:bg-[#1E1B19]/90 border border-[#C5A880]/40 text-white hover:text-[#C5A880] flex items-center justify-center backdrop-blur-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105 active:scale-95"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-[#1E1B19]/60 hover:bg-[#1E1B19]/90 border border-[#C5A880]/40 text-white hover:text-[#C5A880] flex items-center justify-center backdrop-blur-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105 active:scale-95 touch-manipulation"
                   aria-label="Voltar foto anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -109,7 +112,7 @@ export const AboutSection: React.FC = () => {
                 {/* Seta de avançar (Next Button) */}
                 <button
                   onClick={handleNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1E1B19]/60 hover:bg-[#1E1B19]/90 border border-[#C5A880]/40 text-white hover:text-[#C5A880] flex items-center justify-center backdrop-blur-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105 active:scale-95"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-[#1E1B19]/60 hover:bg-[#1E1B19]/90 border border-[#C5A880]/40 text-white hover:text-[#C5A880] flex items-center justify-center backdrop-blur-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105 active:scale-95 touch-manipulation"
                   aria-label="Avançar próxima foto"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -145,7 +148,7 @@ export const AboutSection: React.FC = () => {
               <div className="absolute top-6 left-6 bg-[#FAF8F5]/95 backdrop-blur-md p-4 sm:p-5 rounded-sm border border-[#E8DFD3] shadow-lg max-w-[200px]">
                 <div className="flex items-center gap-2 text-[#B89758] mb-1">
                   <Award className="w-5 h-5" />
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#785E34]">
+                  <span className="text-[11px] uppercase font-bold tracking-widest text-[#785E34]">
                     Autoridade
                   </span>
                 </div>

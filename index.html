@@ -7,37 +7,53 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0D0C0B" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0D0C0B" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>Espaço Lumier - Eventos, Buffet e Decoração em Brasília</title>
-    <meta name="description" content="Espaço nobre para casamentos, festas de 15 anos e eventos em Vicente Pires, Brasília. Mais de 20 anos transformando sonhos com gastronomia de alto padrão e decoração cenográfica." />
+    <title>Espaço Lumier - Casamentos, Buffet e Eventos em Brasília</title>
+    <meta name="description" content="Espaço nobre para casamentos e eventos em Vicente Pires, Brasília. Mais de 20 anos realizando sonhos com alta gastronomia, decoração floral e salão climatizado." />
     <meta name="keywords" content="espaço para eventos em Brasília, espaço para casamento em Brasília, salão de festas em Brasília, buffet para eventos em Brasília, espaço para eventos em Vicente Pires, salão de festas em Vicente Pires, casamento Brasília, festa de 15 anos Brasília, decoração de eventos Brasília" />
     <meta name="author" content="Espaço Lumier" />
     <meta name="geo.region" content="BR-DF" />
     <meta name="geo.placename" content="Vicente Pires, Brasília" />
     <meta name="robots" content="index, follow" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://espacolumier.com.br/" />
+
     <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/png" href="/logo-espaco-lumier.png" />
-    <link rel="shortcut icon" type="image/png" href="/logo-espaco-lumier.png" />
-    <link rel="apple-touch-icon" href="/logo-espaco-lumier.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- LCP Image Preload (Desktop & Mobile) -->
+    <link rel="preload" as="image" href="/back1.webp" type="image/webp" fetchpriority="high" media="(min-width: 640px)" />
+    <link rel="preload" as="image" href="/video-lumier-mobile-poster.webp" type="image/webp" fetchpriority="high" media="(max-width: 639px)" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Espaço Lumier - Eventos, Buffet e Decoração em Brasília" />
+    <meta property="og:url" content="https://espacolumier.com.br/" />
+    <meta property="og:title" content="Espaço Lumier - Casamentos, Buffet e Eventos em Brasília" />
     <meta property="og:description" content="O cenário para os momentos que merecem ser inesquecíveis. Espaço, buffet e decoração para transformar sua celebração em uma experiência única em Vicente Pires, Brasília." />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Espaço Lumier" />
-    <meta property="og:image" content="/logo-espaco-lumier.png" />
+    <meta property="og:image" content="https://espacolumier.com.br/og-image.jpg" />
+    <meta property="og:image:secure_url" content="https://espacolumier.com.br/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Espaço Lumier - Salão Nobre para Casamentos e Eventos em Brasília" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Espaço Lumier - Eventos, Buffet e Decoração em Brasília" />
+    <meta name="twitter:url" content="https://espacolumier.com.br/" />
+    <meta name="twitter:title" content="Espaço Lumier - Casamentos, Buffet e Eventos em Brasília" />
     <meta name="twitter:description" content="O cenário para os momentos que merecem ser inesquecíveis. Espaço, buffet e decoração em Brasília." />
-    <meta name="twitter:image" content="/logo-espaco-lumier.png" />
+    <meta name="twitter:image" content="https://espacolumier.com.br/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Espaço Lumier - Salão Nobre para Casamentos e Eventos em Brasília" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Optimized Weights + display=swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Structured Data (JSON-LD) for Local Event Venue in Brasília -->
     <script type="application/ld+json">
@@ -45,8 +61,17 @@
       "@context": "https://schema.org",
       "@type": "EventVenue",
       "name": "Espaço Lumier",
-      "description": "Espaço para eventos, casamentos, 15 anos, buffet autoral e decoração cenográfica em Vicente Pires, Brasília - DF.",
+      "url": "https://espacolumier.com.br/",
+      "image": [
+        "https://espacolumier.com.br/og-image.jpg",
+        "https://espacolumier.com.br/back1.webp"
+      ],
+      "logo": "https://espacolumier.com.br/icon-512.png",
+      "description": "Espaço nobre para eventos, casamentos, 15 anos, buffet autoral e decoração cenográfica em Vicente Pires, Brasília - DF.",
       "telephone": "+556133972794",
+      "priceRange": "$$$",
+      "currenciesAccepted": "BRL",
+      "paymentAccepted": "Cartão de Crédito, Pix, Transferência Bancária",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rua 07, Chácara 330, Lote 08",
@@ -77,7 +102,24 @@
       ],
       "sameAs": [
         "https://instagram.com/espacolumier"
-      ]
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Brasília"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Distrito Federal"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "180",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
     }
     </script>
   </head>

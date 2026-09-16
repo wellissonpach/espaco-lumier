@@ -63,11 +63,11 @@ export const InstagramSection: React.FC = () => {
                   <Instagram className="w-4 h-4 text-[#C5A880]" />
                 </div>
                 
-                <p className="text-[10px] text-[#E8DFD3] line-clamp-3 leading-snug">
+                <p className="text-[11px] text-[#E8DFD3] line-clamp-3 leading-snug">
                   {post.caption}
                 </p>
 
-                <div className="flex items-center justify-between text-[10px] text-[#D9CFC4] pt-2 border-t border-white/20">
+                <div className="flex items-center justify-between text-[11px] text-[#D9CFC4] pt-2 border-t border-white/20">
                   <span className="flex items-center gap-1">
                     <Heart className="w-3 h-3 text-red-400 fill-current" />
                     {post.likes}

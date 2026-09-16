@@ -74,7 +74,7 @@ export const BuffetSection: React.FC<BuffetSectionProps> = ({ onOpenBudgetModal,
                   }`}
                 >
                   <div>
-                    <span className="text-[10px] uppercase tracking-wider font-semibold text-[#785E34] block mb-0.5">
+                    <span className="text-[11px] uppercase tracking-wider font-semibold text-[#785E34] block mb-0.5">
                       {item.category}
                     </span>
                     <h3 className={`font-serif text-lg font-normal transition-colors ${
@@ -111,7 +111,7 @@ export const BuffetSection: React.FC<BuffetSectionProps> = ({ onOpenBudgetModal,
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B19]/75 via-transparent to-transparent pointer-events-none"></div>
                 
                 {activeItem.tag && (
-                  <span className="absolute top-4 left-4 px-3 py-1 bg-[#FAF8F5]/90 backdrop-blur-sm text-[10px] uppercase font-bold tracking-widest text-[#1E1B19] rounded-sm shadow-sm pointer-events-none z-10">
+                  <span className="absolute top-4 left-4 px-3 py-1 bg-[#FAF8F5]/90 backdrop-blur-sm text-[11px] uppercase font-bold tracking-widest text-[#1E1B19] rounded-sm shadow-sm pointer-events-none z-10">
                     {activeItem.tag}
                   </span>
                 )}
@@ -123,10 +123,11 @@ export const BuffetSection: React.FC<BuffetSectionProps> = ({ onOpenBudgetModal,
                       e.stopPropagation();
                       onSelectImageForLightbox(currentImage, activeItem.title, activeItem.description);
                     }}
-                    className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm cursor-pointer transition-transform hover:scale-110 shadow-md"
+                    className="absolute top-4 right-4 z-20 min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm cursor-pointer transition-transform hover:scale-110 shadow-md flex items-center justify-center touch-manipulation"
+                    aria-label="Ampliar foto"
                     title="Ampliar foto"
                   >
-                    <Maximize2 className="w-3.5 h-3.5" />
+                    <Maximize2 className="w-4 h-4" />
                   </button>
                 )}
 
@@ -135,17 +136,17 @@ export const BuffetSection: React.FC<BuffetSectionProps> = ({ onOpenBudgetModal,
                   <>
                     <button
                       onClick={handlePrevImage}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm transition-transform hover:scale-110 cursor-pointer shadow-lg"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm transition-transform hover:scale-110 cursor-pointer shadow-lg flex items-center justify-center touch-manipulation"
                       aria-label="Foto anterior"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <ChevronLeft className="w-5 h-5" />
                     </button>
                     <button
                       onClick={handleNextImage}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm transition-transform hover:scale-110 cursor-pointer shadow-lg"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm transition-transform hover:scale-110 cursor-pointer shadow-lg flex items-center justify-center touch-manipulation"
                       aria-label="Próxima foto"
                     >
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-5 h-5" />
                     </button>
 
                     {/* Counter Pill */}
@@ -156,7 +157,7 @@ export const BuffetSection: React.FC<BuffetSectionProps> = ({ onOpenBudgetModal,
                 )}
 
                 <div className="absolute bottom-4 left-4 right-4 text-white pointer-events-none">
-                  <span className="text-[10px] uppercase tracking-widest text-[#D9CFC4] font-medium">
+                  <span className="text-[11px] uppercase tracking-widest text-[#D9CFC4] font-medium">
                     {activeItem.category}
                   </span>
                   <h3 className="font-serif text-xl sm:text-2xl font-light text-white">
@@ -220,7 +221,7 @@ export const BuffetSection: React.FC<BuffetSectionProps> = ({ onOpenBudgetModal,
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
                 
                 <div className="absolute top-2 left-2 z-10">
-                  <span className="px-1.5 py-0.5 bg-white/90 backdrop-blur-xs text-[9px] font-semibold uppercase tracking-wider text-[#1E1B19] rounded-xs shadow-xs">
+                  <span className="px-2 py-0.5 bg-white/90 backdrop-blur-xs text-[11px] font-semibold uppercase tracking-wider text-[#1E1B19] rounded-xs shadow-xs">
                     {photo.category}
                   </span>
                 </div>
