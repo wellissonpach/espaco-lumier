@@ -152,8 +152,9 @@
     </script>
   </head>
   <body class="bg-[#FAF8F5] text-[#2C2825] antialiased selection:bg-[#C5A880]/30 selection:text-[#1E1B19] overflow-x-hidden font-sans">
-    <div id="root">
-      <!-- Fallback Semântico para Crawlers e Acessibilidade (substituído pelo React no carregamento) -->
+    <div id="root"></div>
+    <noscript>
+      <!-- Fallback Semântico para Crawlers e Acessibilidade (apenas se JS estiver desativado) -->
       <header>
         <p>Espaço Lumier - Casamentos, Buffet e Eventos em Brasília</p>
       </header>
@@ -179,7 +180,7 @@
           <p>Rua 07, Chácara 330, Lote 08 – Vicente Pires, Brasília - DF. Telefone: (61) 3397-2794. Atendimento com agendamento prévio.</p>
         </section>
       </main>
-    </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
