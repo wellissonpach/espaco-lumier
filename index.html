@@ -59,7 +59,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "EventVenue",
+      "@type": ["EventVenue", "LocalBusiness"],
       "name": "Espaço Lumier",
       "url": "https://espacolumier.com.br/",
       "image": [
@@ -69,9 +69,11 @@
       "logo": "https://espacolumier.com.br/icon-512.png",
       "description": "Espaço nobre para eventos, casamentos, 15 anos, buffet autoral e decoração cenográfica em Vicente Pires, Brasília - DF.",
       "telephone": "+556133972794",
+      "email": "contato@espacolumier.com.br",
       "priceRange": "$$$",
       "currenciesAccepted": "BRL",
       "paymentAccepted": "Cartão de Crédito, Pix, Transferência Bancária",
+      "hasMap": "https://maps.app.goo.gl/jEkj5dNbpUxHjG9f8",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rua 07, Chácara 330, Lote 08",
@@ -119,12 +121,65 @@
         "reviewCount": "180",
         "bestRating": "5",
         "worstRating": "1"
-      }
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Bruna & Felipe"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "O Espaço Lumier transformou nosso casamento em um conto de fadas. O buffet foi elogiadíssimo por todos os convidados e a decoração com os lustres deixou tudo mágico."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Mariana & Gustavo"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "A experiência no Lumier superou qualquer expectativa nossa. A suíte da noiva trouxe uma tranquilidade ímpar e a gastronomia autoral encantou do início ao fim."
+        }
+      ]
     }
     </script>
   </head>
   <body class="bg-[#FAF8F5] text-[#2C2825] antialiased selection:bg-[#C5A880]/30 selection:text-[#1E1B19] overflow-x-hidden font-sans">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Fallback Semântico para Crawlers e Acessibilidade (substituído pelo React no carregamento) -->
+      <header>
+        <p>Espaço Lumier - Casamentos, Buffet e Eventos em Brasília</p>
+      </header>
+      <main>
+        <h1>Espaço para Casamentos e Eventos em Brasília — Espaço Lumier</h1>
+        <p>Salão nobre climatizado, alta gastronomia e decoração cenográfica para casamentos, 15 anos e eventos em Vicente Pires, Brasília - DF.</p>
+        <section>
+          <h2>Mais de Duas Décadas Realizando Sonhos</h2>
+          <p>Há mais de 20 anos realizando celebrações exclusivas com gastronomia autoral, mobiliário refinado, lustres de cristal e suporte integral.</p>
+        </section>
+        <section>
+          <h2>Serviços e Estrutura</h2>
+          <ul>
+            <li>Casamentos com cerimônia no local e suíte exclusiva dos noivos</li>
+            <li>Festas de 15 Anos e debutantes com cenografia contemporânea</li>
+            <li>Eventos corporativos e celebrações sociais</li>
+            <li>Buffet autoral e alta gastronomia para eventos</li>
+            <li>Projeto luminotécnico e decoração floral completa</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Localização e Contato</h2>
+          <p>Rua 07, Chácara 330, Lote 08 – Vicente Pires, Brasília - DF. Telefone: (61) 3397-2794. Atendimento com agendamento prévio.</p>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
