@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://espacolumier.com.br/sitemap.xml
+Sitemap: https://www.espacolumier.com.br/sitemap.xml

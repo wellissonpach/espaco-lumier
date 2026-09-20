@@ -16,6 +16,7 @@ import { BudgetCalculatorModal } from './components/BudgetCalculatorModal';
 import { LightboxModal } from './components/LightboxModal';
 import { GALLERY_ITEMS } from './data/lumierData';
 import { GalleryImage } from './types';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [isBudgetModalOpen, setIsBudgetModalOpen] = useState(false);
@@ -124,6 +125,9 @@ export default function App() {
         onPrev={handlePrevLightbox}
         onNext={handleNextLightbox}
       />
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </div>
   );
 }
